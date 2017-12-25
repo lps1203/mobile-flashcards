@@ -75,8 +75,8 @@ export default class App extends React.Component {
 
   addCard = () => {
     const card = {
-      question: 'Java === JavaScript ?',
-      answer: 'false'
+      question: 'ECMAScript === JavaScript ?',
+      answer: 'true'
     }
     addCardToDeck('ComputerScience', card)
   }
@@ -104,6 +104,8 @@ export default class App extends React.Component {
               <Text>{this.state.data.Chemistry.questions[2].question}</Text>
               <Text>{this.state.data.ComputerScience.questions[0].question}</Text>
               <Text>{this.state.data.ComputerScience.questions[0].answer}</Text>
+              <Text>{this.state.data.ComputerScience.questions[1].question}</Text>
+              <Text>{this.state.data.ComputerScience.questions[1].answer}</Text>
             </View>
         }
       </View>
