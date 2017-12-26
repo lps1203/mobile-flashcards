@@ -27,7 +27,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         decks: {
-          ...decks,
+          ...state.decks,
           [newDeck]: {
             title: newDeck,
             questions: []
@@ -38,7 +38,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         decks: {
-          ...decks,
+          ...state.decks,
           [newCard.title]: {
             title: newCard.title,
             questions: state.decks[newCard.title]['questions'].concat([newCard.card])

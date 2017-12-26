@@ -32,10 +32,7 @@ class DeckCard extends React.Component {
 class Main extends React.Component {
 
   state = {
-    showDeck: false,
-    showingDeck: null,
-    decks: {},
-    deck: {}
+    showDeck: false
   }
 
   componentWillMount() {
@@ -95,8 +92,17 @@ class Main extends React.Component {
 
   render() {
     const { decks } = this.props
+    const newCard = {
+      question: 'is c++ object-oriented?',
+      answer: 'sure thing'
+    }
     return (
       <View style={styles.container}>
+        <TouchableOpacity onPress={() => this.props.setViewingDeck('ComputerScience')}>
+          <View style={{width: 100, height: 30, backgroundColor: 'steelblue', margin: 10, padding: 3, borderRadius: 4, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold'}}>Set Deck</Text>
+          </View>
+        </TouchableOpacity>
         {
           Object.keys(decks).map(title => (
             <DeckCard
@@ -114,6 +120,9 @@ class Main extends React.Component {
             <View>
               <Text>{this.props.decks['ComputerScience']['questions'][1].question}</Text>
               <Text>{this.props.decks['ComputerScience']['questions'][1].answer}</Text>
+              <Text>{this.props.decks['C++'].questions[2].question}</Text>
+              <Text>{this.props.decks['C++'].questions[2].answer}</Text>
+              <Text>{this.props.viewingDeck}</Text>
             </View>
           )
         }
@@ -140,7 +149,40 @@ const mapDispatchToProps = dispatch => ({
           throw(error)
         }
       )
-  }
+  },
+  addNewDeck: (title) => {
+    saveDeckTitle(title)
+      .then(
+        () => {
+          dispatch(ACTION.saveDeckTitle(title))
+        },
+        error => {
+          console.log('error in adding new deck')
+          throw(error)
+        }
+      )
+  },
+  addNewCard: (title, card) => {
+    addCardToDeck(title, card)
+      .then(
+        () => {
+          dispatch(ACTION.addCardToDeck(title, card))
+        },
+        error => {
+          console.log('error in adding new card')
+          throw(error)
+        }
+      )
+  },
+  setViewingDeck: (title) => {
+    try {
+      dispatch(ACTION.setViewingDeck(title))
+    }
+    catch(error) {
+      console.log('error in setting viewing deck')
+      throw(error)
+    }
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main)
