@@ -1,36 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import * as ACTION from '../actions'
 import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from '../utils/api'
 
-
-class DeckListView extends Component {
-
-  render() {
-    const { navigation, decks } = this.props
-    return (
-      <View style={styles.container}>
-        {/* button to create a new deck with */}
-        <TouchableOpacity onPress={() => navigation.navigate('NewDeck')}>
-          <View style={styles.newDeckButton}>
-            <Text style={{color: '#fff', fontSize: 18, fontWeight: '700'}}>New Deck</Text>
-          </View>
-        </TouchableOpacity>
-        {
-          // display all the decks off of the redux store
-          Object.keys(this.props.decks).map(deckTitle => (
-            <TouchableOpacity key={deckTitle} onPress={() => navigation.navigate('IndividualDeck')}>
-              <View style={styles.deckCard}>
-                <Text style={styles.deckTitle}>{deckTitle}</Text>
-                <Text style={styles.cardCount}>{decks[deckTitle].questions.length} cards</Text>
-              </View>
-            </TouchableOpacity>
-          ))
-        }
-      </View>
-    )
-  }
+function DeckListView(props) {
+  const { navigation, decks } = props
+  return (
+    <View style={styles.container}>
+      {/* button to create a new deck with */}
+      <TouchableOpacity onPress={() => navigation.navigate('NewDeck')}>
+        <View style={styles.newDeckButton}>
+          <Text style={{color: '#fff', fontSize: 18, fontWeight: '700'}}>New Deck</Text>
+        </View>
+      </TouchableOpacity>
+      {
+        // display all the decks off of the redux store
+        Object.keys(decks).map(deckTitle => (
+          <TouchableOpacity key={deckTitle} onPress={() => navigation.navigate('IndividualDeck')}>
+            <View style={styles.deckCard}>
+              <Text style={styles.deckTitle}>{deckTitle}</Text>
+              <Text style={styles.cardCount}>{decks[deckTitle].questions.length} cards</Text>
+            </View>
+          </TouchableOpacity>
+        ))
+      }
+    </View>
+  )
 }
 
 const mapStateToProps = state => ({
