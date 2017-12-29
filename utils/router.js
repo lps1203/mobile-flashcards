@@ -16,6 +16,9 @@ const DeckRoute = StackNavigator({
   Quiz: { 
     screen: QuizView 
   }
+},
+{
+  headerMode: 'none'
 })
 export const RootRoute = StackNavigator({
   DeckList: { 
