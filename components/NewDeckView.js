@@ -14,7 +14,7 @@ class NewDeckView extends React.Component {
   createNewDeck = () => {
     const { addNewDeck, navigation } = this.props
     addNewDeck(this.state.inputValue)
-    navigation.navigate('IndividualDeck', { deckTitle: this.state.inputValue })
+      .then (() => navigation.navigate('IndividualDeck', { deckTitle: this.state.inputValue }))
   }
   render() {
     const backAction = NavigationActions.back()
@@ -54,7 +54,7 @@ class NewDeckView extends React.Component {
 }
 const mapDispatchToProps = dispatch => ({
   addNewDeck: (title) => {
-    saveDeckTitle(title)
+    return saveDeckTitle(title)
       .then(
         () => {
           dispatch(ACTION.saveDeckTitle(title))

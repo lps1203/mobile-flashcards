@@ -21,7 +21,7 @@ function IndividualDeckView(props) {
           {deckTitle}
         </Text>
         <Text style={{ fontSize: 24, fontWeight: '900', color: '#555', alignSelf: 'center', marginTop: 10 }}>
-          {decks[deckTitle] ? decks[deckTitle].questions.length : 0} cards
+          {decks[deckTitle].questions.length} cards
         </Text>
         </View>
       </View>
@@ -46,22 +46,7 @@ const mapStateToProps = state => ({
   decks: state.decks
 })
 
-const mapDispatchToProps = dispatch => ({
-  addNewCard: (title, card) => {
-    addCardToDeck(title, card)
-      .then(
-        () => {
-          dispatch(ACTION.addCardToDeck(title, card))
-        },
-        error => {
-          console.log('error in adding new card')
-          throw(error)
-        }
-      )
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(IndividualDeckView)
+export default connect(mapStateToProps)(IndividualDeckView)
 
 const styles = StyleSheet.create({
   container: {

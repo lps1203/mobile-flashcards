@@ -23,7 +23,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getAllData: () => {
-    getDecks()
+    return getDecks()
       .then(
         decks => {
           dispatch(ACTION.getDecks(decks))
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
       )
   },
   addNewDeck: (title) => {
-    saveDeckTitle(title)
+    return saveDeckTitle(title)
       .then(
         () => {
           dispatch(ACTION.saveDeckTitle(title))
@@ -47,7 +47,7 @@ const mapDispatchToProps = dispatch => ({
       )
   },
   addNewCard: (title, card) => {
-    addCardToDeck(title, card)
+    return addCardToDeck(title, card)
       .then(
         () => {
           dispatch(ACTION.addCardToDeck(title, card))

@@ -11,15 +11,20 @@ function DeckListView(props) {
       <Text style={{fontSize: 24, fontWeight: '900', color: '#444', alignSelf: 'center', padding: 10}}>Decks</Text>
       <ScrollView>
       {
+        decks === null
+        ? <View>
+            <Text>No Decks</Text>
+            <Text>Start by creating a new deck.</Text>
+          </View>
         // display all the decks off of the redux store
-        Object.keys(decks).map(deckTitle => (
-          <TouchableOpacity key={deckTitle} onPress={() => navigation.navigate('IndividualDeck', {deckTitle})}>
-            <View style={styles.deckCard}>
-              <Text style={styles.deckTitle}>{deckTitle}</Text>
-              <Text style={styles.cardCount}>{decks[deckTitle].questions.length} cards</Text>
-            </View>
-          </TouchableOpacity>
-        ))
+        : Object.keys(decks).map(deckTitle => (
+            <TouchableOpacity key={deckTitle} onPress={() => navigation.navigate('IndividualDeck', {deckTitle})}>
+              <View style={styles.deckCard}>
+                <Text style={styles.deckTitle}>{deckTitle}</Text>
+                <Text style={styles.cardCount}>{decks[deckTitle].questions.length} cards</Text>
+              </View>
+            </TouchableOpacity>
+          ))
       }
       </ScrollView>
       {/* button to create a new deck with */}
