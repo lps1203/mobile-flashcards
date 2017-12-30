@@ -10,9 +10,10 @@ function IndividualDeckView(props) {
   const backAction = NavigationActions.back()
   const { navigation, decks } = props
   const { deckTitle } = navigation.state.params
+  const numCards = decks[deckTitle].questions.length
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.dispatch(backAction)}>
+      <TouchableOpacity onPress={() => navigation.navigate('DeckList')}>
         <Ionicons name="ios-arrow-back" size={35} style={{ padding: 10, paddingTop: 30 }} />
       </TouchableOpacity>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -21,7 +22,7 @@ function IndividualDeckView(props) {
           {deckTitle}
         </Text>
         <Text style={{ fontSize: 24, fontWeight: '900', color: '#555', alignSelf: 'center', marginTop: 10 }}>
-          {decks[deckTitle].questions.length} cards
+          {numCards} cards
         </Text>
         </View>
       </View>
@@ -32,7 +33,7 @@ function IndividualDeckView(props) {
               <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Create New Question</Text>
             </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Quiz', {deckTitle})}>
+        <TouchableOpacity onPress={() => navigation.navigate('Quiz', {deckTitle, numCards, numCorrect: 0, currentPage: 0 })}>
             <View style={styles.button}>
               <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Start a Quiz</Text>
             </View>

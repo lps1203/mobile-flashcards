@@ -5,32 +5,55 @@ import NewDeckView from '../components/NewDeckView'
 import IndividualDeckView from '../components/IndividualDeckView'
 import NewQuestionView from '../components/NewQuestionView'
 import QuizView from '../components/QuizView'
+import AnswerView from '../components/AnswerView'
+import ScoreView from '../components/ScoreView'
 
-const DeckRoute = StackNavigator({
-  IndividualDeck: { 
-    screen: IndividualDeckView 
+const CardRoute = StackNavigator(
+  {
+    Quiz: {
+      screen: QuizView
+    },
+    Answer: {
+      screen: AnswerView
+    },
+    Score: {
+      screen: ScoreView
+    }
   },
-  NewQuestion: { 
-    screen: NewQuestionView 
-  },
-  Quiz: { 
-    screen: QuizView 
+  {
+    headerMode: 'none'
   }
-},
-{
-  headerMode: 'none'
-})
-export const RootRoute = StackNavigator({
-  DeckList: { 
-    screen: DeckListView 
+)
+
+const DeckRoute = StackNavigator(
+  {
+    IndividualDeck: { 
+      screen: IndividualDeckView 
+    },
+    NewQuestion: { 
+      screen: NewQuestionView 
+    },
+    Quiz: { 
+      screen: CardRoute
+    }
   },
-  NewDeck: { 
-    screen: NewDeckView 
-  },
-  IndividualDeck: { 
-    screen: DeckRoute 
+  {
+    headerMode: 'none'
   }
-}, 
-{
-  headerMode: 'none'
-})
+)
+export const RootRoute = StackNavigator(
+  {
+    DeckList: { 
+      screen: DeckListView 
+    },
+    NewDeck: { 
+      screen: NewDeckView 
+    },
+    IndividualDeck: { 
+      screen: DeckRoute 
+    }
+  }, 
+  {
+    headerMode: 'none'
+  }
+)
