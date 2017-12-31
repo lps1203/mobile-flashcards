@@ -44,7 +44,7 @@ class NewDeckView extends React.Component {
           {/* button to create a new deck with */}
             <TouchableOpacity onPress={this.createNewDeck}>
                 <View style={styles.newDeckButton}>
-                  <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Create New Deck</Text>
+                  <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Add New Deck</Text>
                 </View>
             </TouchableOpacity>
           </View>

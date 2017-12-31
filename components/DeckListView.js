@@ -12,9 +12,9 @@ function DeckListView(props) {
       <ScrollView>
       {
         decks === null
-        ? <View>
-            <Text>No Decks</Text>
-            <Text>Start by creating a new deck.</Text>
+        ? <View style={{ justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{ fontSize: 21, fontStyle: 'italic', fontWeight: '800', color: '#444', paddingTop: 50 }}>No Decks!</Text>
+            <Text style={{ fontSize: 20, fontStyle: 'italic', fontWeight: '700', color: '#555', paddingTop: 5 }}>Start by creating a deck</Text>
           </View>
         // display all the decks off of the redux store
         : Object.keys(decks).map(deckTitle => (
@@ -30,7 +30,7 @@ function DeckListView(props) {
       {/* button to create a new deck with */}
       <TouchableOpacity onPress={() => navigation.navigate('NewDeck')}>
         <View style={styles.newDeckButton}>
-          <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>New Deck</Text>
+          <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Create New Deck</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     margin: 20,
     marginTop: 8,
     marginBottom: 7,
-    padding: 15,
+    padding: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },

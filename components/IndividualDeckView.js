@@ -35,7 +35,7 @@ function IndividualDeckView(props) {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Quiz', {deckTitle, numCards, numCorrect: 0, currentPage: 0 })}>
             <View style={styles.button}>
-              <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Start a Quiz</Text>
+              <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Start Quiz</Text>
             </View>
         </TouchableOpacity>
       </View>

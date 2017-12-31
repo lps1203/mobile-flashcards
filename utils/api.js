@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native'
-export const UDACIFITNESS_KEY = '12345678901234'
+export const UDACIFITNESS_KEY = '123456789012345'
 
 /* Shape of AsyncStorage:
 

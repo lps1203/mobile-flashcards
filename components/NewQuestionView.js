@@ -58,7 +58,7 @@ class NewQuestionView extends React.Component {
           {/* button to create a new deck with */}
             <TouchableOpacity onPress={this.createNewCard}>
                 <View style={styles.newCardButton}>
-                  <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Create New Card</Text>
+                  <Text style={{color: '#fff', fontSize: 18, fontWeight: '800'}}>Add New Card</Text>
                 </View>
             </TouchableOpacity>
           </View>
