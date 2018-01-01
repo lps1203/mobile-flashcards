@@ -32,7 +32,7 @@ function QuizView(props) {
               <Text style={{ fontSize: 20, fontWeight: '800', color: '#444'}}>{numCards-currentPage-1} Left</Text>
             </View>
             <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
-              <Text style={{ fontSize: 24, fontWeight: '900', color: '#333', alignSelf: 'center', paddingTop: 60, paddingBottom: 20}}>{decks[deckTitle].questions[currentPage].question}</Text>
+              <Text style={{ fontSize: 24, fontWeight: '900', color: '#333', alignSelf: 'center', paddingTop: 60, paddingBottom: 20, paddingLeft: 10, paddingRight: 10 }}>{decks[deckTitle].questions[currentPage].question}</Text>
               <Button 
                 title="Show answer"
                 color="#444"
