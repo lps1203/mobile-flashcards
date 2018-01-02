@@ -9,7 +9,7 @@ import React from 'react'
 import { AsyncStorage } from 'react-native'
 import { Notifications, Permissions } from 'expo'
 
-const NOTIFICATION_KEY = 'NOTIFICATION_KEY'
+const NOTIFICATION_KEY = 'NOTIFICATION::KEY'
 
 export function clearLocalNotification () {
   return AsyncStorage.removeItem(NOTIFICATION_KEY)
