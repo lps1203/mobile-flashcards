@@ -1,11 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import * as ACTION from '../actions'
-import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from '../utils/api'
 import { Ionicons } from '@expo/vector-icons'
-
 import { NavigationActions } from 'react-navigation'
+import * as ACTION from '../actions'
+import { saveDeckTitle } from '../utils/api'
 
 class NewDeckView extends React.Component {
   state = {
@@ -52,6 +51,7 @@ class NewDeckView extends React.Component {
     )
   }
 }
+
 const mapDispatchToProps = dispatch => ({
   addNewDeck: (title) => {
     return saveDeckTitle(title)

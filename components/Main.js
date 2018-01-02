@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { RootRoute } from '../utils/router'
 import * as ACTION from '../actions'
-import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from '../utils/api'
+import { getDecks } from '../utils/api'
 
 class Main extends Component {
   componentWillMount() {
@@ -16,11 +16,6 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  viewingDeck: state.viewingDeck,
-  decks: state.decks
-})
-
 const mapDispatchToProps = dispatch => ({
   getAllData: () => {
     return getDecks()
@@ -33,40 +28,7 @@ const mapDispatchToProps = dispatch => ({
           throw(error)
         }
       )
-  },
-  addNewDeck: (title) => {
-    return saveDeckTitle(title)
-      .then(
-        () => {
-          dispatch(ACTION.saveDeckTitle(title))
-        },
-        error => {
-          console.log('error in adding new deck')
-          throw(error)
-        }
-      )
-  },
-  addNewCard: (title, card) => {
-    return addCardToDeck(title, card)
-      .then(
-        () => {
-          dispatch(ACTION.addCardToDeck(title, card))
-        },
-        error => {
-          console.log('error in adding new card')
-          throw(error)
-        }
-      )
-  },
-  setViewingDeck: (title) => {
-    try {
-      dispatch(ACTION.setViewingDeck(title))
-    }
-    catch(error) {
-      console.log('error in setting viewing deck')
-      throw(error)
-    }
-  },
+  }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(null, mapDispatchToProps)(Main)

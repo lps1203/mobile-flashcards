@@ -1,8 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import * as ACTION from '../actions'
-import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from '../utils/api'
 
 function DeckListView(props) {
   const { navigation, decks } = props

@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Button } from 'react-native'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 import * as ACTION from '../actions'
 import { addCardToDeck } from '../utils/api'
 import { Ionicons } from '@expo/vector-icons'
-import { NavigationActions } from 'react-navigation'
 
 class NewQuestionView extends React.Component {
   state = {
@@ -68,7 +68,6 @@ class NewQuestionView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  viewingDeck: state.viewingDeck,
   decks: state.decks
 })
 
@@ -86,7 +85,6 @@ const mapDispatchToProps = dispatch => ({
       )
   }
 })
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewQuestionView)
 

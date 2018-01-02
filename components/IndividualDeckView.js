@@ -1,10 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Animated } from 'react-native'
 import { connect } from 'react-redux'
-import * as ACTION from '../actions'
+import { NavigationActions } from 'react-navigation'
 import { addCardToDeck } from '../utils/api'
 import { Ionicons } from '@expo/vector-icons'
-import { NavigationActions } from 'react-navigation'
 
 class IndividualDeckView extends React.Component {
   state = {

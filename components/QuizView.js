@@ -38,7 +38,6 @@ function QuizView(props) {
                 color="#444"
                 onPress={() => navigation.navigate('Answer', { deckTitle, numCards, numCorrect, currentPage})}
               />
-
               <View style={{ flex: 1, justifyContent: 'flex-end'}}>
                 <TouchableOpacity style={styles.button} onPress={handleCorrect}>
                   <Text style={{color: '#90ee90', fontSize: 18, fontWeight: '900'}}>Correct</Text>
@@ -57,6 +56,7 @@ function QuizView(props) {
 const mapStateToProps = state => ({
   decks: state.decks
 })
+
 export default connect(mapStateToProps)(QuizView)
 
 const styles = StyleSheet.create({

@@ -7,7 +7,6 @@ function AnswerView(props) {
   const { navigation, decks } = props
   const { deckTitle, numCards, numCorrect, currentPage } = navigation.state.params
   const backAction = NavigationActions.back()
-  
   const handleCorrect = () => {
     numCards === currentPage + 1
     ? navigation.navigate('Score', { deckTitle, numCards, numCorrect: numCorrect+1 })
@@ -21,7 +20,6 @@ function AnswerView(props) {
   return (
     <View style={styles.container}>
       <Text style={{fontSize: 24, fontWeight: '900', color: '#444', alignSelf: 'center', padding: 10}}>{deckTitle}</Text>
-
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20}}>
           <Text style={{ fontSize: 20, fontWeight: '800', color: '#444'}}>Answer #{currentPage+1}</Text>
@@ -34,7 +32,6 @@ function AnswerView(props) {
             color="#444"
             onPress={() => navigation.dispatch(backAction)}
           />
-
           <View style={{ flex: 1, justifyContent: 'flex-end'}}>
             <TouchableOpacity style={styles.button} onPress={handleCorrect}>
               <Text style={{color: '#90ee90', fontSize: 18, fontWeight: '900'}}>Correct</Text>
@@ -52,6 +49,7 @@ function AnswerView(props) {
 const mapStateToProps = state => ({
   decks: state.decks
 })
+
 export default connect(mapStateToProps)(AnswerView)
 
 const styles = StyleSheet.create({
